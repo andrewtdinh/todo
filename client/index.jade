@@ -2,13 +2,37 @@ doctype html
 html
   head
     meta(charset='utf-8')      
-    title Apollo
+    title To Do App
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
   body
-    img#apollo(src='/assets/apollo.jpg')
-    h1#title Apollo
-
+    h1#header My ToDo App
+    input#name(type='text', autofocus=true)
+    button#set-name Set Name
+    
+    #controls
+      input#title(type='text', placeholder='Title')
+      input#due-date(type='date')
+      select#priority
+        option High
+        option Medium
+        option Low
+      button#create-task Create Task
+    
+    table#todos
+      thead
+        tr
+          th Delete
+          th Is Complete?
+          th Title
+          th Due Date
+          th Priority
+          th Created At
+      tbody
+      
+    script(src='/vendor/momentjs/min/moment.min.js')
+    script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/lodash/lodash.min.js')
+    script(src='/vendor/firebase/firebase.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
